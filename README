@@ -1,0 +1,40 @@
++--------------------------------------------------------
+| Adding Stardate, Local Date and Time to your Nova Theme
+|
+| Developer: Dustin Lennon
+| Email: demonicpagan@gmail.com
+|
+| This application is developed under the licenses
+| of Nova and CodeIgniter.
++--------------------------------------------------------
+
+This isn't typical of any of my other MODs. This one will just contain this README with the code you will need to 
+place in your theme's template_main.php file. This section of code you can place anywhere in the file where you 
+want the stardate, local date, and local time to be displayed.
+
+CODE:
+<!-- Set UCIP Stardate and Local Server Time -->
+<?php echo "Stardate: ". $this->settings->get_setting('sim_year') . date("m.d"); ?>
+<br />
+<?php echo "Date: ". date("M d, Y"); ?>
+<br />
+<?php echo "Time: ". date("g:i A T");?>
+
+So, for instance you want it placed above the sub-navigation:
+<!-- SUB NAVIGATION -->
+<div class="nav-sub">
+	<!-- Set UCIP Stardate and Local Server Time -->
+	<?php echo "Stardate: ". $this->settings->get_setting('sim_year') . date("m.d"); ?>
+	<br />
+	<?php echo "Date: ". date("M d, Y"); ?>
+	<br />
+	<?php echo "Time: ". date("g:i A T");?>
+	<?php echo $nav_sub;?>
+</div>
+
+At a later date and time, I MAY make this an option in the site settings to turn on/off.
+
+-------------------------------------
+Changelog - Dates are in Epoch time
+
+1271798383: Wrote this README to tell you how to put a stardate, local server time and date in your theme.

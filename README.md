@@ -23,9 +23,15 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
-1272515242: Created a more readable README for GitHub.
+1272515242:
 
-1271958859: As per a suggestion by Anodyne Productions on GitHub, I have made the theme alteration a hook using
+*	Created a more readable README for GitHub.
+
+1271958859:
+
+*	As per a suggestion by Anodyne Productions on GitHub, I have made the theme alteration a hook using
 CodeIgniter's hook system.
 
-1271798383: Wrote this README to tell you how to put a stardate, local server time and date in your theme.
+1271798383:
+
+*	Wrote this README to tell you how to put a stardate, local server time and date in your theme.

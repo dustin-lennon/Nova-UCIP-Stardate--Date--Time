@@ -19,6 +19,9 @@ that you just take the contents of this file and add it into your existing hooks
 3. In any theme you want to add this MOD to add `<?php echo $stardate;?>` to where ever you want this to be displayed.
 Display alterations will need to be made in the file you uploaded in step 2.
 
+**NOTE: FOR THOSE USING THIS MOD AND ARE NOT A PART OF THE UCIP SIMMING ORGANIZATION, YOU WILL NEED TO MODIFY UCIP-Stardate-Hook.php
+SO THAT THE STARDATE SHOWS THE WAY YOUR ORGANZIATION OR SIM DEALS WITH STARDATES.**
+
 At a later date and time, I MAY make this an option in the site settings to turn on/off.
 
 Changelog - Dates are in Epoch time

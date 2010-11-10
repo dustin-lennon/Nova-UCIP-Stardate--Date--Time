@@ -26,6 +26,12 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1289356151:
+
+*	Updated hook to use the Nova system site stored settings to retrieve the proper timezone and DST setting and display it.
+Bug found by CajunSamurai of the Anodyne Productions forums.
+
+
 1272515242:
 
 *	Created a more readable README for GitHub.

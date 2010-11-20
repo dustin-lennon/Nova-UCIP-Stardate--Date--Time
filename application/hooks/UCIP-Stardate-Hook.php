@@ -165,7 +165,7 @@ class Mod {
 		 */
 		$stardate = $modsettings['sim_year'].date('m.d');
 
-		// CI's date functions are slightly different from date()
+		// Using PHP 5.2+ DateTime class to format date
 		$date = $novaTimeZone->format('M d, Y');
 
 		// exact same timestamp just in a different format

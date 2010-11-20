@@ -27,131 +27,132 @@ class Mod {
 		 * especially with something that's running before anything
 		 * it set to the browser.
 		 */
-		$modsettings = $ci->settings->get_settings(array('sim_year', 'timezone', 'daylight_savings', 'date_format'));
+		$modsettings = $ci->settings->get_settings(array('sim_year', 'timezone'));
 
 		// Set server timezone based on Nova setting
 		$tz = $modsettings['timezone'];
+
 		switch ($tz)
 		{
 			case 'UM12':
-				date_default_timezone_set("Pacific/Kwajalein");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Kwajalein'));
 				break;
 			case 'UM11':
-				date_default_timezone_set("Pacific/Samoa");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Samoa'));
 				break;
 			case 'UM10':
-				date_default_timezone_set("Pacific/Honolulu");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Honolulu'));
 				break;
 			case 'UM95':
-				date_default_timezone_set("Pacific/Marquesas");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Marquesas'));
 				break;
 			case 'UM9':
-				date_default_timezone_set("America/Anchorage");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Anchorage'));
 				break;
 			case 'UM8':
-				date_default_timezone_set("America/Los_Angeles");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Los_Angeles'));
 				break;
 			case 'UM7':
-				date_default_timezone_set("America/Boise");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Boise'));
 				break;
 			case 'UM6':
-				date_default_timezone_set("America/Chicago");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Chicago'));
 				break;
 			case 'UM5':
-				date_default_timezone_set("America/Bogota");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/New_York'));
 				break;
 			case 'UM45':
-				date_default_timezone_set("America/Caracas");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Caracas'));
 				break;
 			case 'UM4':
-				date_default_timezone_set("America/Santiago");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Santiago'));
 				break;
 			case 'UM35':
-				date_default_timezone_set("America/St_Johns");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/St_Johns'));
 				break;
 			case 'UM3':
-				date_default_timezone_set("America/Argentina/Buenos_Aires");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Argentina/Buenos_Aires'));
 				break;
 			case 'UM2':
-				date_default_timezone_set("America/Noronha");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('America/Noronha'));
 				break;
 			case 'UM1':
-				date_default_timezone_set("Atlantic/Azores");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Atlantic/Azores'));
 				break;
 			case 'UTC':
-				date_default_timezone_set("Europe/London");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Europe/London'));
 				break;
 			case 'UP1':
-				date_default_timezone_set("Europe/Amsterdam");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Europe/Amsterdam'));
 				break;
 			case 'UP2':
-				date_default_timezone_set("Africa/Cairo");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Africa/Cairo'));
 				break;
 			case 'UP3':
-				date_default_timezone_set("Europe/Moscow");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Europe/Moscow'));
 				break;
 			case 'UP35':
-				date_default_timezone_set("Asia/Tehran");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Tehran'));
 				break;
 			case 'UP4':
-				date_default_timezone_set("Asia/Dubai");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Dubai'));
 				break;
 			case 'UP45':
-				date_default_timezone_set("Asia/Kabul");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Kabul'));
 				break;
 			case 'UP5':
-				date_default_timezone_set("Asia/Yekaterinburg");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Yekaterinburg'));
 				break;
 			case 'UP55':
-				date_default_timezone_set("Asia/Kolkata");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Kolkata'));
 				break;
 			case 'UP575':
-				date_default_timezone_set("Asia/Katmandu");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Katmandu'));
 				break;
 			case 'UP6':
-				date_default_timezone_set("Asia/Dhaka");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
 				break;
 			case 'UP65':
-				date_default_timezone_set("Asia/Rangoon");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Rangoon'));
 				break;
 			case 'UP7':
-				date_default_timezone_set("Asia/Krasnoyarsk");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Krasnoyarsk'));
 				break;
 			case 'UP8':
-				date_default_timezone_set("Australia/Perth");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Australia/Perth'));
 				break;
 			case 'UP875':
-				date_default_timezone_set("Australia/Eucla");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Australia/Eucla'));
 				break;
 			case 'UP9':
-				date_default_timezone_set("Asia/Seoul");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Seoul'));
 				break;
 			case 'UP95':
-				date_default_timezone_set("Australia/Darwin");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Australia/Darwin'));
 				break;
 			case 'UP10':
-				date_default_timezone_set("Australia/Brisbane");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Australia/Brisbane'));
 				break;
 			case 'UP105':
-				date_default_timezone_set("Australia/Lord_Howe");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Australia/Lord_Howe'));
 				break;
 			case 'UP11':
-				date_default_timezone_set("Asia/Magadan");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Magadan'));
 				break;
 			case 'UP115':
-				date_default_timezone_set("Pacific/Norfolk");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Norfolk'));
 				break;
 			case 'UP12':
-				date_default_timezone_set("Asia/Anadyr");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Asia/Anadyr'));
 				break;
 			case 'UP1275':
-				date_default_timezone_set("Pacific/Chatham");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Chatham'));
 				break;
 			case 'UP13':
-				date_default_timezone_set("Pacific/Tongatapu");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Tongatapu'));
 				break;
 			case 'UP14':
-				date_default_timezone_set("Pacific/Kiritimati");
+				$novaTimeZone = new DateTime("now", new DateTimeZone('Pacific/Kiritimati'));
 				break;
 		}
 
@@ -164,14 +165,11 @@ class Mod {
 		 */
 		$stardate = $modsettings['sim_year'].date('m.d');
 
-		// Only get the timestamp once
-		$timestamp = gmt_to_local(now(), $modsettings['timezone'], $modsettings['daylight_savings']);
-
 		// CI's date functions are slightly different from date()
-		$date = mdate('%M %d, %Y', $timestamp);
+		$date = $novaTimeZone->format('M d, Y');
 
 		// exact same timestamp just in a different format
-		$time = mdate('%g:%i %A %T', $timestamp);
+		$time = $novaTimeZone->format('g:i A T');
 
 		$output = '<div style="padding:1em;">';
 		$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';

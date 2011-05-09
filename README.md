@@ -26,6 +26,10 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1304919901:
+
+*	Updated the hooks.php file to include recent hooks added by Anodyne-Productions that I missed.
+
 1290255553:
 
 *	Reworked server timezone issue again. This time using PHP 5.2+ DateTime class. By doing this, you now have to be running version 5.2 or greater of PHP. If you aren't, you will be unable to use this MOD.

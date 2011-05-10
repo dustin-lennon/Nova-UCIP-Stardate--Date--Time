@@ -21,6 +21,9 @@ class Mod {
 	{
 		$ci =& get_instance();
 
+		// Get Stardate Config
+		$ci->config->load('stardate', TRUE);
+
 		/**
 		 * Pull all the settings needed in one fell swoop
 		 * to avoid hitting the database several times along the way,
@@ -156,26 +159,99 @@ class Mod {
 				break;
 		}
 
-		/**
-		 * Using date() here is okay because you're only pulling the
-		 * month and day, but generally, you'll want to avoid this in
-		 * Nova since it relies entirely on a server setting to determine
-		 * what timezone to use whereas using CI's built-in functions
-		 * will take the framework setting in to account.
-		 */
-		$stardate = $modsettings['sim_year'].date('m.d');
+		// Get the option for Stardate Era
+		$era = $ci->config->item('sdera','stardate');
 
-		// Using PHP 5.2+ DateTime class to format date
-		$date = $novaTimeZone->format('M d, Y');
+		switch ($era)
+		{
+			case 'Enterprise':
+				$stardate = date('M d, ').$modsettings['sim_year'];
+				// Using PHP 5.2+ DateTime class to format date
+				$date = $novaTimeZone->format('M d, Y');
+				$time = $novaTimeZone->format('g:i A T');
 
-		// exact same timestamp just in a different format
-		$time = $novaTimeZone->format('g:i A T');
+				$output = '<div style="padding:1em;">';
+				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
+				$output .= '<strong>Date:</strong> '. $date .'<br />';
+				$output .= '<strong>Time:</strong> '. $time .'<br />';
+				$output .= '</div>';
+				break;
+			case 'TOS':
+				$year = $modsettings['sim_year'];
+				$month = date('n');
+				$day = date('j');
+				$hour = date('G');
+				$min = intval(date('i'));
 
-		$output = '<div style="padding:1em;">';
-		$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
-		$output .= '<strong>Date:</strong> '. $date .'<br />';
-		$output .= '<strong>Time:</strong> '. $time .'<br />';
-		$output .= '</div>';
+				// Calculate TOS Stardate
+				// Using PHP 5.2+ DateTime class to format date
+				$stardateOrigin = new DateTime('2265/5/1 00:00:00', new DateTimeZone('Europe/London'));
+				$stardateInput = new DateTime($year.'/'.$month.'/'.$day.' '.$hour.':'.$min.':00', new DateTimeZone('Europe/London'));
+				$ms = ($stardateInput->format('U') - $stardateOrigin->format('U')) * 1000;
+				$starYear = ($ms / (60 * 60 * 24 * 365.2422)) * 2.7113654892;
+				$stardate = floor((floor(floor($starYear * 1000)) / 10)) / 100;
+
+				// Convert TOS Stardate to Human readable date
+				$dateOut = ($stardate / 1000) * 60 * 60 * 24 * 365.2422 / 2.7113654892;
+				$ms = floor($dateOut + $stardateOrigin->format('U'));
+				$date = new DateTime("@$ms");
+
+				$serdate = $novaTimeZone->format('M d, Y');
+				$sertime = $novaTimeZone->format('g:i A T');
+
+				$output = '<div style="padding:1em;">';
+				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
+				$output .= '<strong>Date:</strong> '. $date->format('M d, Y') .'<br />';
+				$output .= '<br /><font style="font-size: 10px"><strong>Server Date:</strong> '. $serdate .'</font><br />';
+				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
+				$output .= '</div>';
+				break;
+			case 'TNG':
+				$year = $modsettings['sim_year'];
+				$month = date('n');
+				$day = date('j');
+				$hour = date('G');
+				$min = intval(date('i'));
+
+				// Calculate TNG Stardate
+				// Using PHP 5.2+ DateTime class to format date
+				$stardateOrigin = new DateTime('2322/5/25 00:00:00', new DateTimeZone('Europe/London'));
+				$stardateInput = new DateTime($year.'/'.$month.'/'.$day.' '.$hour.':'.$min.':00', new DateTimeZone('Europe/London'));
+				$ms = ($stardateInput->format('U') - $stardateOrigin->format('U')) * 1000;
+				$starYear = $ms / (60 * 60 * 24 * 365.2422);
+				$stardate = floor($starYear * 100) / 100;
+
+				// Convert TNG Stardate to Human readable date
+				$dateOut = ($stardate / 1000) * 60 * 60 * 24 * 365.2422;
+				$ms = floor($dateOut + $stardateOrigin->format('U'));
+				$date = new DateTime("@$ms");
+
+				$serdate = $novaTimeZone->format('M d, Y');
+				$sertime = $novaTimeZone->format('g:i A T');
+
+				$output = '<div style="padding:1em;">';
+				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
+				$output .= '<strong>Date:</strong> '. $date->format('M d, Y') .'<br />';
+				$output .= '<br /><font style="font-size: 10px"><strong>Server Date:</strong> '. $serdate .'</font><br />';
+				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
+				$output .= '</div>';
+				break;
+			case 'UCIP':
+				$stardate = $modsettings['sim_year'].date('m.d');
+
+				// Using PHP 5.2+ DateTime class to format date
+				$date = $novaTimeZone->format('M d, Y');
+
+				// exact same timestamp just in a different format
+				$time = $novaTimeZone->format('g:i A T');
+
+				$output = '<div style="padding:1em;">';
+				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
+				$output .= '<strong>Date:</strong> '. $date .'<br />';
+				$output .= '<strong>Time:</strong> '. $time .'<br />';
+				$output .= '</div>';
+				break;
+		}
 
 		$ci->template->add_region('stardate');
 		$ci->template->write('stardate', $output);

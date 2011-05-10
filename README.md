@@ -14,18 +14,33 @@ To install this application you need to perform the following steps.
 the existing one if you haven't already modified this file. If you already have changes in this file, it's best 
 that you just take the contents of this file and add it into your existing hooks.php file.
 
-2. Upload application/hooks/UCIP-Stardate-Hook.php to your application/hooks folder of your Nova install.
+2. Open and edit application/config/stardate.php to chose the proper Stardate Era.
 
-3. In any theme you want to add this MOD to add `<?php echo $stardate;?>` to where ever you want this to be displayed.
+3. Upload application/config/stardate.php to your application/config folder of your Nova install.
+
+4. Upload application/hooks/UCIP-Stardate-Hook.php to your application/hooks folder of your Nova install.
+
+5. In any theme you want to add this MOD to add `<?php echo $stardate;?>` to where ever you want this to be displayed.
 Display alterations will need to be made in the file you uploaded in step 2.
 
 **NOTE: FOR THOSE USING THIS MOD AND ARE NOT A PART OF THE UCIP SIMMING ORGANIZATION, YOU WILL NEED TO MODIFY UCIP-Stardate-Hook.php
 SO THAT THE STARDATE SHOWS THE WAY YOUR ORGANZIATION OR SIM DEALS WITH STARDATES.**
 
+**NOTE: IF YOU ARE WANTING TO MATCH YOUR UNMODIFIED SMS STARDATE SETTINGS SET IN YOUR NOVA SITE OPTIONS THE CORRESPONDING YEAR THAT YOU
+SET FOR THE ERA IN STEP #2.
+
+EXAMPLE: IF YOU SET ENTERPRISE AS YOUR ERA, SET YOUR YEAR TO 2265 OR EARLIER.**
+
+
+
 At a later date and time, I MAY make this an option in the site settings to turn on/off.
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1305018789:
+
+*	Updated the MOD to use stardates that were present in SMS2. Read above on how to configure.
+
 1304919901:
 
 *	Updated the hooks.php file to include recent hooks added by Anodyne-Productions that I missed.

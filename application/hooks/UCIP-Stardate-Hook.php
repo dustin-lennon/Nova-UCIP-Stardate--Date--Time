@@ -236,7 +236,7 @@ class Mod {
 				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
 				$output .= '</div>';
 				break;
-			case 'UCIP':
+			case 'Other':
 				$stardate = $modsettings['sim_year'].date('m.d');
 
 				// Using PHP 5.2+ DateTime class to format date

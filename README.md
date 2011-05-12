@@ -37,6 +37,10 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1305215087:
+
+*	Changed the UCIP choice to Other to be more universal.
+
 1305018789:
 
 *	Updated the MOD to use stardates that were present in SMS2. Read above on how to configure.

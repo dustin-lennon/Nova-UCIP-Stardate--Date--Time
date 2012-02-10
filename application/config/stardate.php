@@ -4,8 +4,8 @@
 | Stardate/Time Configuration Options
 |--------------------------------------------------------------------------
 |
-| This holds all the needed configuration options for you to place a Mibbit
-| chat page on your Nova installation.
+| This holds all the needed configuration options for Stardate/Time
+| configuration.
 |
 */
 

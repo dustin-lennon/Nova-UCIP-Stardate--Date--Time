@@ -17,7 +17,7 @@ class ModStardate {
 		log_message('info', 'Mod Hook Initialized');
 	}
 
-	public static function stardate()
+	public function stardate()
 	{
 		$ci =& get_instance();
 

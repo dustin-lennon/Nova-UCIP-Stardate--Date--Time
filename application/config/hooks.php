@@ -13,7 +13,7 @@
 require_once MODPATH.'core/config/nova_hooks.php';
 
 $hook['post_controller_constructor'][] = array(
-	'class'		=> 'Mod',
+	'class'		=> 'ModStardate',
 	'function'	=> 'stardate',
 	'filename'	=> 'UCIP-Stardate-Hook.php',
 	'filepath'	=> 'hooks',

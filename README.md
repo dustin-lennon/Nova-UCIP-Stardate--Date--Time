@@ -37,6 +37,10 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1329001460:
+
+*	Was informed that I forgot to change the class name in the hooks.php file. That has been fixed. ([#3](https://github.com/demonicpagan/Nova-UCIP-Stardate--Date--Time/issues/3))
+
 1328960336:
 
 *	Renamed functions to adhere more towards PHP5 coding standards.

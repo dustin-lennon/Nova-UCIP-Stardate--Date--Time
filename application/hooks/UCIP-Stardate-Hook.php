@@ -9,7 +9,7 @@
 |
 */
 
-class Mod {
+class ModStardate {
 
 	public function Mod()
 	{

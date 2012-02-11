@@ -37,6 +37,11 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1328960336:
+
+*	Renamed functions to adhere more towards PHP5 coding standards.
+*	Changed the class name from Mod to something more descriptive to reduce potential issues of calling the same class name from more than 1 file.
+
 1328655654:
 
 *	Updating files to be compatible with Nova 2.0.1

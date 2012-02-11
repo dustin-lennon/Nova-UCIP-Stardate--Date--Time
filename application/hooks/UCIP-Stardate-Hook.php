@@ -11,13 +11,13 @@
 
 class Mod {
 
-	function Mod()
+	public function Mod()
 	{
 		/* log the debug message */
 		log_message('info', 'Mod Hook Initialized');
 	}
 
-	function stardate()
+	public static function stardate()
 	{
 		$ci =& get_instance();
 

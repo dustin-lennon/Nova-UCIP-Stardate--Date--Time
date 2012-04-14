@@ -10,37 +10,12 @@
 |
 */
 
-$hook['post_controller_constructor'][] = array(
-	'class'		=> 'Utility',
-	'function'	=> 'browser',
-	'filename'	=> 'Utility.php',
-	'filepath'	=> 'hooks',
-	'params'	=> ''
-);
+require_once MODPATH.'core/config/nova_hooks.php';
 
 $hook['post_controller_constructor'][] = array(
-	'class'		=> 'Utility',
-	'function'	=> 'bans',
-	'filename'	=> 'Utility.php',
-	'filepath'	=> 'hooks',
-	'params'	=> ''
+	'class' => 'Stardate',
+	'function' => 'stardate',
+	'filename' => 'Stardate.php',
+	'filepath' => 'hooks',
+	'params' => ''
 );
-
-$hook['post_controller_constructor'][] = array(
-	'class'		=> 'Utility',
-	'function'	=> 'maintenance',
-	'filename'	=> 'Utility.php',
-	'filepath'	=> 'hooks',
-	'params'	=> ''
-);
-
-$hook['post_controller_constructor'][] = array(
-	'class'		=> 'Mod',
-	'function'	=> 'stardate',
-	'filename'	=> 'UCIP-Stardate-Hook.php',
-	'filepath'	=> 'hooks',
-	'params'	=> ''
-);
-
-/* End of file hooks.php */
-/* Location: ./application/config/hooks.php */

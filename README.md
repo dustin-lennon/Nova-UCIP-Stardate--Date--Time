@@ -31,12 +31,17 @@ SET FOR THE ERA IN STEP #2.
 
 EXAMPLE: IF YOU SET ENTERPRISE AS YOUR ERA, SET YOUR YEAR TO 2265 OR EARLIER.**
 
-
+Choose from Enterprise, TOS, TNG, STO, or Other as eras.
 
 At a later date and time, I MAY make this an option in the site settings to turn on/off.
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1351511360:
+
+*	Added STO as an option for stardate
+*	Fixed stardate calculation for TNG and TOS eras.
+
 1329001460:
 
 *	Was informed that I forgot to change the class name in the hooks.php file. That has been fixed. ([#3](https://github.com/demonicpagan/Nova-UCIP-Stardate--Date--Time/issues/3))

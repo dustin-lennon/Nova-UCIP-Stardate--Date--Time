@@ -238,31 +238,30 @@ class ModStardate {
 				break;
 			case 'STO':
 				// Using PHP 5.2+ DateTime class to format date
-				$year = date('Y') + 400;
+				$year = date('Y');
 				$month = date('n');
 				$day = date('j');
 				$hour = date('G');
 				$min = intval(date('i'));
+				$sec = date('s');
 
 				// Calculate STO Stardate
 				// Using PHP 5.2+ DateTime class to format date
-				$stardateOrigin = new DateTime('2318/7/5 12:00:00', new DateTimeZone('Europe/London'));
-				$stardateInput = new DateTime($year.'/'.$month.'/'.$day.' '.$hour.':'.$min.':00', new DateTimeZone('Europe/London'));
-				$ms = ($stardateInput->format('U') - $stardateOrigin->format('U')) * 1000;
-				$starYear = $ms / 34367056.4;
-				$stardate = floor($starYear * 100) / 100;
+				$baseStardate = 48000.00; // = May 24, 1970 00:00:00 UTC
+				$yearOffset = 192399;
 
-				// Convert TNG Stardate to Human readable date
-				$dateOut = ($stardate / 1000) * 34367056.4;
-				$ms = floor($dateOut + $stardateOrigin->format('U'));
-				$date = new DateTime("@$ms");
+				$myDate = strtotime("{$month}/{$day}/{$year} {$hour}:{$min}:{$sec}");
+				$myDateMin = ($myDate/60) - $yearOffset;
+
+				$stardateAdd = $myDateMin * 0.0019;
+				$stardate = ($stardateAdd + $baseStardate);
+				$stardate = round($stardate * pow(10, 2)) / pow(10, 2);
 
 				$serdate = $novaTimeZone->format('M d, Y');
 				$sertime = $novaTimeZone->format('g:i A T');
 
 				$output = '<div style="padding:1em;">';
 				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
-				$output .= '<strong>Date:</strong> '. $date->format('M d, Y') .'<br />';
 				$output .= '<br /><font style="font-size: 10px"><strong>Server Date:</strong> '. $serdate .'</font><br />';
 				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
 				$output .= '</div>';

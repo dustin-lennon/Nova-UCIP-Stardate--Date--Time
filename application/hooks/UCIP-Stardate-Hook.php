@@ -236,38 +236,8 @@ class ModStardate {
 				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
 				$output .= '</div>';
 				break;
-			case 'STO':
-				// Using PHP 5.2+ DateTime class to format date
-				$year = date('Y');
-				$month = date('n');
-				$day = date('j');
-				$hour = date('G');
-				$min = intval(date('i'));
-				$sec = date('s');
-
-				// Calculate STO Stardate
-				// Using PHP 5.2+ DateTime class to format date
-				$baseStardate = 48000.00; // = May 24, 1970 00:00:00 UTC
-				$yearOffset = 192399;
-
-				$myDate = strtotime("{$month}/{$day}/{$year} {$hour}:{$min}:{$sec}");
-				$myDateMin = ($myDate/60) - $yearOffset;
-
-				$stardateAdd = $myDateMin * 0.0019;
-				$stardate = ($stardateAdd + $baseStardate);
-				$stardate = round($stardate * pow(10, 2)) / pow(10, 2);
-
-				$serdate = $novaTimeZone->format('M d, Y');
-				$sertime = $novaTimeZone->format('g:i A T');
-
-				$output = '<div style="padding:1em;">';
-				$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
-				$output .= '<br /><font style="font-size: 10px"><strong>Server Date:</strong> '. $serdate .'</font><br />';
-				$output .= '<font style="font-size: 10px"><strong>Server Time:</strong> '. $sertime .'</font><br />';
-				$output .= '</div>';
-				break;
 			case 'Other':
-				$stardate = $modsettings['sim_year'].date('m.d');
+				$stardate = $modsettings['sim_year'].$novaTimeZone->format('m.d');
 
 				// Using PHP 5.2+ DateTime class to format date
 				$date = $novaTimeZone->format('M d, Y');

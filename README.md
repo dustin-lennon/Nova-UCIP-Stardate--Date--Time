@@ -37,6 +37,10 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1411627672:
+
+*	Fixed an issue where the stardate may advance a day early/late because it was detecting GMT timezone. Set it to use Nova's set timezone to formt the date.
+
 1351511360:
 
 *	Added STO as an option for stardate

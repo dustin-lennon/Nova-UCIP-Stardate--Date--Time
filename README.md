@@ -39,7 +39,7 @@ Changelog - Dates are in Epoch time
 -----------------------------------
 1411689740:
 
-*	Merged changes made by [rajeltomari] (https://github.com/rajeltomari) into this version. See 59ed9244c8d0b6b4e1d694cf1889df165a9c3d83.
+*	Merged changes made by [rajeltomari] (https://github.com/rajeltomari) into this version. See [59ed924] (https://github.com/rajeltomari/Stardate/commit/59ed9244c8d0b6b4e1d694cf1889df165a9c3d83).
 
 1411627672:
 

@@ -246,6 +246,31 @@ class ModStardate {
 					$output .= '</div>';
 					break;
 
+				case 'STO':
+					// Calculate STO Stardate
+					// Using PHP 5.2+ DateTime class to format date
+					new DateTimeZone('America/New_York');
+					$baseStardate = 48000.00; // = May 24, 1970 00:00:00 UTC
+					$yearOffset = 192399;
+
+					$myDate = strtotime("now");
+					$myDateMin = ($myDate/60) - $yearOffset;
+					$stardateAdd = $myDateMin * 0.0019;
+					$stardate = round(($stardateAdd + $baseStardate) * pow(10,2)) / pow(10,2);
+
+					// Using PHP 5.2+ DateTime class to format date
+					$date = $novaTimeZone->format('M d, Y');
+
+					// exact same timestamp just in a different format
+					$time = $novaTimeZone->format('g:i A T');
+
+					$output = '<div style="padding:1em;">';
+					$output .= '<strong>Stardate:</strong> '. $stardate .'<br />';
+					$output .= '<strong>Date:</strong> '. $date .'<br />';
+					$output .= '<strong>Time:</strong> '. $time .'<br />';
+					$output .= '</div>';
+					break;
+
 				case 'Other':
 					$stardate = $modsettings['sim_year'].$novaTimeZone->format('m.d');
 

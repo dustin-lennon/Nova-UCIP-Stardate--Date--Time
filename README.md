@@ -37,6 +37,10 @@ At a later date and time, I MAY make this an option in the site settings to turn
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1418357832:
+
+*	Added the calculation of STO's stardate for display.
+
 1411689740:
 
 *	Merged changes made by [rajeltomari] (https://github.com/rajeltomari) into this version. See [59ed924] (https://github.com/rajeltomari/Stardate/commit/59ed9244c8d0b6b4e1d694cf1889df165a9c3d83).
